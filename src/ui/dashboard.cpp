@@ -1,12 +1,13 @@
 // dashboard.cpp
-#include "../pch.h"
 #include "dashboard.h"
 #include "../imgui.h"
-// #include "debug_console.h"
 #include "linked_list_window.h"
+#include "signal_visualization_window.h"
+#include <stdio.h>
 
 namespace UI {
 bool showLinkedListWindow = false;
+bool showSignalVisualizationWindow = false;
 
 void RenderDashboard() {
   ImGui::Begin("Dashboard");
@@ -18,9 +19,14 @@ void RenderDashboard() {
   if (ImGui::Button("Open Linked List Visualization")) {
     showLinkedListWindow = true;
   }
+  //
+  // Button to open the signal visualization window
+  if (ImGui::Button("Open Signal Visualization")) {
+    showSignalVisualizationWindow = true;
+  }
 
   if (ImGui::Button("Log Test Message")) {
-    // DebugConsole::Instance().Log("Test message from the Dashboard");
+    printf("Test Message\n");
   }
 
   ImGui::End();
@@ -28,6 +34,11 @@ void RenderDashboard() {
   // Render the linked list window if the flag is set
   if (showLinkedListWindow) {
     LinkedListWindow::Show(&showLinkedListWindow);
+  }
+
+  // Render the signal visualization window if the flag is set
+  if (showSignalVisualizationWindow) {
+    SignalVisualizationWindow::Show(&showSignalVisualizationWindow);
   }
 }
 } // namespace UI

@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add the ImGui source directory
-set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/imgui)
+set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/libs/imgui)
 
 # Add the SDL2 dependency
 find_package(SDL2 REQUIRED)
@@ -25,9 +25,11 @@ include_directories(
 set(SOURCES
     src/main.cpp
     src/app.cpp
+    src/internal/logger.cpp
     src/ui/menu.cpp
     src/ui/dashboard.cpp
     src/ui/linked_list_window.cpp
+    src/ui/signal_visualization_window.cpp
     src/linked_list.cpp
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui_draw.cpp
@@ -40,9 +42,11 @@ set(SOURCES
 # Header files for the project
 set(HEADERS
     src/app.h
+    src/internal/logger.h
     src/ui/menu.h
     src/ui/dashboard.h
     src/ui/linked_list_window.h
+    src/ui/signal_visualization_window.h
     src/linked_list.h
 )
 

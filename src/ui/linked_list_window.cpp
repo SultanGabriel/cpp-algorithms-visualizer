@@ -1,7 +1,6 @@
 #include "linked_list_window.h"
 #include "../imgui.h"
 #include "../linked_list.h"
-#include "imgui_internal.h"
 #include "linked_list_window.h"
 
 namespace UI {
