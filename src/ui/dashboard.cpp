@@ -1,6 +1,6 @@
 // dashboard.cpp
 #include "dashboard.h"
-#include "../imgui.h"
+#include "imgui.h"
 #include "linked_list_window.h"
 #include "signal_visualization_window.h"
 #include <stdio.h>

@@ -11,6 +11,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add the ImGui source directory
 set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/libs/imgui)
 
+# Add ImPlot source files
+set(IMPLOT_DIR ${CMAKE_SOURCE_DIR}/libs/implot)
+#
+# set(IMPLOT_SOURCES
+#     ${IMPLOT_DIR}/implot.cpp
+#     ${IMPLOT_DIR}/implot_items.cpp
+#     ${IMPLOT_DIR}/implot_demo.cpp
+# )
+
+# # Add ImPlot include directory
+# include_directories()
+
+# Append ImPlot sources to your build
+# list(APPEND SOURCES ${IMPLOT_SOURCES})
+
 # Add the SDL2 dependency
 find_package(SDL2 REQUIRED)
 
@@ -19,6 +34,7 @@ include_directories(
     ${SDL2_INCLUDE_DIRS}
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
+    ${IMPLOT_DIR}
 )
 
 # Source files for the project
@@ -38,6 +54,9 @@ set(SOURCES
     ${IMGUI_DIR}/imgui_widgets.cpp
     ${IMGUI_DIR}/backends/imgui_impl_sdl2.cpp
     ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
+    ${IMPLOT_DIR}/implot.cpp
+    ${IMPLOT_DIR}/implot_items.cpp
+    ${IMPLOT_DIR}/implot_demo.cpp
 )
 # Header files for the project
 set(HEADERS
@@ -65,4 +84,5 @@ target_compile_options(${PROJECT_NAME} PRIVATE -include cstring)
 
 # Link libraries (SDL2 and OpenGL)
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} GL)
+# target_link_libraries(${PROJECT_NAME} implot)
 

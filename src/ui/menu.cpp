@@ -1,6 +1,6 @@
 // menu.cpp
 #include "menu.h"
-#include "../imgui.h"
+#include "imgui.h"
 
 namespace UI {
     void RenderMenu() {
